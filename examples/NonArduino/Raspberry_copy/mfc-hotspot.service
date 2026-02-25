@@ -1,0 +1,16 @@
+[Unit]
+Description=Start MFC hotspot at boot
+After=NetworkManager.service
+Wants=NetworkManager.service
+
+[Service]
+Type=oneshot
+Environment=MFC_HOTSPOT_SSID=MFC-1
+Environment=MFC_HOTSPOT_IFACE=wlan0
+Environment=MFC_HOTSPOT_CONN_NAME=mfc-hotspot
+Environment=MFC_HOTSPOT_PASSWORD=MFC12345
+ExecStart=/home/pi/Documents/Radiolib/examples/NonArduino/Raspberry_copy/start_mfc_hotspot.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

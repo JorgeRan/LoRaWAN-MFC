@@ -1,0 +1,18 @@
+[Unit]
+Description=LoRaWAN Radio Application with Switch Control
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/pi/Documents/Radiolib/examples/NonArduino/Raspberry_copy/build
+ExecStart=/home/pi/Documents/Radiolib/examples/NonArduino/Raspberry_copy/build/rpi-sx1262
+Restart=on-failure
+RestartSec=10
+StandardOutput=inherit
+StandardError=inherit
+SyslogIdentifier=rpi-sx1262
+
+[Install]
+WantedBy=multi-user.target
